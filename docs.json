@@ -14,28 +14,60 @@
     "href": "https://searchthetrend.com"
   },
   "navigation": {
-    "groups": [
+    "languages": [
       {
-        "group": "Connect your AI",
-        "pages": ["index", "limits"]
-      },
-      {
-        "group": "Quickstarts",
-        "pages": [
-          "quickstart/claude",
-          "quickstart/chatgpt",
-          "quickstart/claude-code",
-          "quickstart/cursor",
-          "quickstart/gemini-cli"
+        "language": "en",
+        "groups": [
+          {
+            "group": "Connect your AI",
+            "pages": ["index", "limits"]
+          },
+          {
+            "group": "Quickstarts",
+            "pages": [
+              "quickstart/claude",
+              "quickstart/chatgpt",
+              "quickstart/claude-code",
+              "quickstart/cursor",
+              "quickstart/gemini-cli"
+            ]
+          },
+          {
+            "group": "Tools",
+            "pages": ["tools/reference"]
+          },
+          {
+            "group": "Playbooks",
+            "pages": ["playbooks/index"]
+          }
         ]
       },
       {
-        "group": "Tools",
-        "pages": ["tools/reference"]
-      },
-      {
-        "group": "Playbooks",
-        "pages": ["playbooks/index"]
+        "language": "es",
+        "groups": [
+          {
+            "group": "Conecta tu IA",
+            "pages": ["es/index", "es/limits"]
+          },
+          {
+            "group": "Guías rápidas",
+            "pages": [
+              "es/quickstart/claude",
+              "es/quickstart/chatgpt",
+              "es/quickstart/claude-code",
+              "es/quickstart/cursor",
+              "es/quickstart/gemini-cli"
+            ]
+          },
+          {
+            "group": "Tools",
+            "pages": ["es/tools/reference"]
+          },
+          {
+            "group": "Playbooks",
+            "pages": ["es/playbooks/index"]
+          }
+        ]
       }
     ]
   },

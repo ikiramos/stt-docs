@@ -65,34 +65,56 @@ function paramRows(schema) {
 const tools = await loadCatalog();
 const byName = new Map(tools.map((t) => [t.name, t]));
 
-let mdx = `---
-title: "Tools reference"
-description: "Every tool your assistant can call, with parameters. Generated from the live server, always in sync."
----
-
-All tools are **read-only** except the two under *Actions*, which spend account credits and always ask for confirmation. Results are compact JSON designed for AI context windows (list tools cap at 25 rows).
-
-`;
-
-for (const g of GROUPS) {
-  mdx += `## ${g.title}\n\n`;
-  for (const name of g.tools) {
-    const t = byName.get(name);
-    if (!t) continue;
-    mdx += `### \`${name}\`\n\n${esc(t.description)}\n\n`;
-    const rows = paramRows(t.inputSchema);
-    if (rows.length > 0) {
-      mdx += `| Parameter | Type | Required | Notes |\n|---|---|---|---|\n${rows.join("\n")}\n\n`;
-    } else {
-      mdx += `_No parameters._\n\n`;
-    }
-  }
-}
+// Both locales share the generated tables; only the page frame is localized.
+// Tool descriptions stay in English in BOTH (they come from the live server;
+// the assistant reads them in English regardless of the user's language).
+const LOCALES = [
+  {
+    out: "../tools/reference.mdx",
+    title: "Tools reference",
+    description: "Every tool your assistant can call, with parameters. Generated from the live server, always in sync.",
+    intro:
+      "All tools are **read-only** except the two under *Actions*, which spend account credits and always ask for confirmation. Results are compact JSON designed for AI context windows (list tools cap at 25 rows).",
+    headers: "| Parameter | Type | Required | Notes |",
+    noParams: "_No parameters._",
+    groupTitles: {},
+  },
+  {
+    out: "../es/tools/reference.mdx",
+    title: "Referencia de tools",
+    description: "Cada herramienta que tu asistente puede llamar, con sus parámetros. Generada desde el servidor en vivo, siempre sincronizada.",
+    intro:
+      "Todas las herramientas son de **solo lectura** salvo las dos de *Acciones*, que gastan créditos de la cuenta y siempre piden confirmación. Los resultados son JSON compacto pensado para ventanas de contexto de IA (las listas devuelven máximo 25 filas). Las descripciones se muestran en inglés: son las que lee tu asistente, generadas desde el servidor.",
+    headers: "| Parámetro | Tipo | Obligatorio | Notas |",
+    noParams: "_Sin parámetros._",
+    groupTitles: {
+      Products: "Productos",
+      Ads: "Anuncios",
+      Brands: "Marcas",
+      "Advertisers (Facebook pages)": "Anunciantes (páginas de Facebook)",
+      "Your account": "Tu cuenta",
+      "Actions (cost credits)": "Acciones (cuestan créditos)",
+    },
+  },
+];
 
 const missing = tools.filter((t) => !GROUPS.some((g) => g.tools.includes(t.name)));
-for (const t of missing) {
-  mdx += `### \`${t.name}\`\n\n${esc(t.description)}\n\n`;
-}
 
-writeFileSync(new URL("../tools/reference.mdx", import.meta.url), mdx);
-console.log(`reference.mdx written — ${tools.length} tools${missing.length ? ` (${missing.length} uncategorized: ${missing.map((t) => t.name).join(", ")})` : ""}`);
+for (const loc of LOCALES) {
+  let mdx = `---\ntitle: "${loc.title}"\ndescription: "${loc.description}"\n---\n\n${loc.intro}\n\n`;
+  for (const g of GROUPS) {
+    mdx += `## ${loc.groupTitles[g.title] ?? g.title}\n\n`;
+    for (const name of g.tools) {
+      const t = byName.get(name);
+      if (!t) continue;
+      mdx += `### \`${name}\`\n\n${esc(t.description)}\n\n`;
+      const rows = paramRows(t.inputSchema);
+      mdx += rows.length > 0 ? `${loc.headers}\n|---|---|---|---|\n${rows.join("\n")}\n\n` : `${loc.noParams}\n\n`;
+    }
+  }
+  for (const t of missing) {
+    mdx += `### \`${t.name}\`\n\n${esc(t.description)}\n\n`;
+  }
+  writeFileSync(new URL(loc.out, import.meta.url), mdx);
+}
+console.log(`reference.mdx written (en + es) — ${tools.length} tools${missing.length ? ` (${missing.length} uncategorized: ${missing.map((t) => t.name).join(", ")})` : ""}`);

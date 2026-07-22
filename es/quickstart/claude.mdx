@@ -1,0 +1,34 @@
+---
+title: "claude.ai y Claude Desktop"
+description: "Conector de un clic, sin API key."
+---
+
+Funciona en claude.ai (web) y en la app de escritorio de Claude. Requiere un plan de Claude con conectores personalizados (Pro o superior) y un **plan de pago de SearchTheTrend**.
+
+<Steps>
+  <Step title="Abre los ajustes de conectores">
+    En Claude: **Ajustes → Conectores → Añadir conector personalizado**.
+  </Step>
+  <Step title="Pega la URL de SearchTheTrend">
+    ```text
+    https://searchthetrend.com/api/mcp
+    ```
+  </Step>
+  <Step title="Conecta e inicia sesión">
+    Pulsa **Conectar**. Se abre el login de SearchTheTrend: entra con tu cuenta y aprueba. Verás la pantalla de permisos una vez, y el acceso queda recordado.
+  </Step>
+  <Step title="Pruébalo">
+    Abre un chat nuevo y pregunta:
+    > *"Reconstruye la estrategia de venta de [cualquier tienda que te dé curiosidad]."*
+  </Step>
+</Steps>
+
+<Tip>
+Claude carga las herramientas de SearchTheTrend que necesita según la pregunta. Si una consulta de marca no activa el conector, menciónalo explícitamente: *"usando SearchTheTrend, analiza…"*
+</Tip>
+
+## Tareas programadas
+
+Las tareas programadas de Claude convierten cualquier prompt en un informe recurrente. Prueba a programar:
+
+> *"Cada mañana, revisa los productos en tendencia de mi nicho dirigidos a Alemania y resúmeme el top 3 con quién los anuncia y qué ángulo usan."*

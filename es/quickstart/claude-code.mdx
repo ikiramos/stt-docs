@@ -1,0 +1,26 @@
+---
+title: "Claude Code"
+description: "Un comando con tu API key."
+---
+
+Para la CLI de Claude Code (y otros clientes por cabecera), autentícate con una API key personal en lugar de OAuth.
+
+<Steps>
+  <Step title="Genera una key">
+    En SearchTheTrend: [Ajustes → Conecta tu IA](https://searchthetrend.com/settings/mcp) → **Generar key**. Copia el valor `stt_...`, que se muestra una sola vez.
+  </Step>
+  <Step title="Añade el servidor">
+    ```bash
+    claude mcp add --transport http searchthetrend https://searchthetrend.com/api/mcp \
+      --header "Authorization: Bearer stt_TU_KEY"
+    ```
+    Añade `--scope user` para tenerlo disponible en todos tus proyectos.
+  </Step>
+  <Step title="Verifica">
+    Abre una sesión nueva de Claude Code y ejecuta `/mcp`. `searchthetrend` debería aparecer como conectado con sus herramientas.
+  </Step>
+</Steps>
+
+<Warning>
+Trata la key como una contraseña: actúa como tu cuenta (listas guardadas, escaneos que gastan créditos). Puedes revocarla en cualquier momento desde la misma página de ajustes.
+</Warning>

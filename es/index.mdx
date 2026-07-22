@@ -1,0 +1,43 @@
+---
+title: "Conecta tu IA a SearchTheTrend"
+description: "Enchufa Claude o ChatGPT a tus datos de SearchTheTrend e investiga productos ganadores, anuncios y competidores simplemente preguntando."
+---
+
+SearchTheTrend incluye un **servidor MCP** remoto. MCP es el estándar abierto que Claude, ChatGPT y la mayoría de asistentes de IA usan para llamar a herramientas externas. Una vez conectado, tu asistente puede buscar productos en tendencia, diseccionar los funnels de cualquier marca rastreada, extraer creativos ganadores con su copy, vigilar tus listas guardadas e incluso lanzar escaneos de marca en vivo, todo en lenguaje natural.
+
+## La versión de 30 segundos
+
+<Steps>
+  <Step title="Copia la URL del conector">
+    ```text
+    https://searchthetrend.com/api/mcp
+    ```
+  </Step>
+  <Step title="Añádela como conector">
+    En **claude.ai** o **ChatGPT**: Ajustes → Conectores → *Añadir conector personalizado* → pega la URL.
+  </Step>
+  <Step title="Inicia sesión">
+    Pulsa **Conectar** e inicia sesión con tu cuenta de SearchTheTrend. Eso es todo. **Sin API key.**
+  </Step>
+</Steps>
+
+Después, simplemente pregunta:
+
+> *"Encuéntrame 3 productos de mascotas en tendencia en Alemania y enséñame quién los anuncia."*
+
+## Dos formas de autenticarse
+
+| Vía | Para | Cómo |
+|---|---|---|
+| **OAuth (recomendado)** | claude.ai, ChatGPT, Claude Desktop | Pega la URL, pulsa Conectar, inicia sesión. Tu asistente actúa como *tú*: ve tus listas guardadas y solo gasta tus créditos tras pedirte confirmación. |
+| **API key** | Claude Code, Cursor, gemini-cli y otras herramientas de desarrollador | Genera una key `stt_...` en [Ajustes → Conecta tu IA](https://searchthetrend.com/settings/mcp) y envíala como cabecera Bearer. |
+
+## Qué puede hacer tu asistente
+
+- **Descubrir** productos en tendencia por nicho, país e idioma, en tarjetas compactas con crecimiento, inversión y longevidad.
+- **Diseccionar competidores**: cada página de Facebook desde la que anuncia una marca, su mapa de funnels (página de producto vs advertorial vs quiz), su stack técnico y sus pixels.
+- **Estudiar anuncios ganadores**: creativos, copy, alcance e inversión por país, posición en el ranking de anuncios a lo largo del tiempo.
+- **Vigilar tu cartera**: tus productos y anuncios guardados, listos para revisiones programadas.
+- **Escanear bajo demanda**: lanza un escaneo en vivo de cualquier tienda directamente desde el chat.
+
+Disponible en todos los planes de pago. Consulta [Límites y planes](/es/limits).

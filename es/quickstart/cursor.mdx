@@ -1,0 +1,28 @@
+---
+title: "Cursor"
+description: "Añade SearchTheTrend a la config MCP de Cursor."
+---
+
+<Steps>
+  <Step title="Genera una key">
+    [Ajustes → Conecta tu IA](https://searchthetrend.com/settings/mcp) → **Generar key**.
+  </Step>
+  <Step title="Edita la config MCP de Cursor">
+    **Cursor Settings → MCP → Add new global MCP server**, o edita `~/.cursor/mcp.json`:
+    ```json
+    {
+      "mcpServers": {
+        "searchthetrend": {
+          "url": "https://searchthetrend.com/api/mcp",
+          "headers": {
+            "Authorization": "Bearer stt_TU_KEY"
+          }
+        }
+      }
+    }
+    ```
+  </Step>
+  <Step title="Recarga">
+    Reinicia Cursor (o reactiva el servidor) y las herramientas de SearchTheTrend aparecen en la caja de herramientas del agente.
+  </Step>
+</Steps>
