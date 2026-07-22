@@ -1,0 +1,34 @@
+---
+title: "claude.ai & Claude Desktop"
+description: "One-click connector — no API key."
+---
+
+Works on claude.ai (web) and the Claude desktop app. Requires a Claude plan with custom connectors (Pro or above) and a **paid SearchTheTrend plan**.
+
+<Steps>
+  <Step title="Open connector settings">
+    In Claude: **Settings → Connectors → Add custom connector**.
+  </Step>
+  <Step title="Paste the SearchTheTrend URL">
+    ```text
+    https://searchthetrend.com/api/mcp
+    ```
+  </Step>
+  <Step title="Connect and sign in">
+    Click **Connect**. A SearchTheTrend login opens — sign in with your account and approve. You'll see the permissions screen once; access is remembered.
+  </Step>
+  <Step title="Try it">
+    Start a new chat and ask:
+    > *"Reconstruct the selling strategy of [any store domain you're curious about]."*
+  </Step>
+</Steps>
+
+<Tip>
+Claude loads the SearchTheTrend tools it needs per question. If a brand question doesn't pick up the connector, mention it explicitly: *"using SearchTheTrend, analyze…"*
+</Tip>
+
+## Scheduled tasks
+
+Claude's scheduled tasks turn any prompt into a recurring brief. Try scheduling:
+
+> *"Every morning, check the trending products in my niche targeting Germany and summarize the top 3 with who advertises them and the angle they use."*

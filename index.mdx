@@ -1,0 +1,43 @@
+---
+title: "Connect your AI to SearchTheTrend"
+description: "Plug Claude or ChatGPT into your SearchTheTrend data and research winning products, ads and competitors by just asking."
+---
+
+SearchTheTrend ships a remote **MCP server** — the open standard Claude, ChatGPT and most AI assistants use to call external tools. Once connected, your assistant can search trending products, dissect any tracked brand's funnels, pull winning ad creatives with their copy, watch your saved lists, and even launch live brand scans — all in natural language.
+
+## The 30-second version
+
+<Steps>
+  <Step title="Copy the connector URL">
+    ```text
+    https://searchthetrend.com/api/mcp
+    ```
+  </Step>
+  <Step title="Add it as a connector">
+    In **claude.ai** or **ChatGPT**: Settings → Connectors → *Add custom connector* → paste the URL.
+  </Step>
+  <Step title="Sign in">
+    Click **Connect** and log in with your SearchTheTrend account. That's it — **no API key needed**.
+  </Step>
+</Steps>
+
+Then just ask:
+
+> *"Find me 3 trending pet products in Germany and show me who advertises them."*
+
+## Two ways to authenticate
+
+| Path | For | How |
+|---|---|---|
+| **OAuth (recommended)** | claude.ai, ChatGPT, Claude Desktop | Paste the URL, click Connect, sign in. Your assistant acts as *you*: it sees your saved lists and spends your credits only after asking. |
+| **API key** | Claude Code, Cursor, gemini-cli and other developer tools | Generate an `stt_...` key in [Settings → Connect your AI](https://searchthetrend.com/settings/mcp) and send it as a Bearer header. |
+
+## What your assistant can do
+
+- **Discover** — trending products by niche, country and language; compact cards with growth, spend and longevity.
+- **Dissect competitors** — every Facebook page a brand advertises through, its funnel "door map" (product page vs advertorial vs quiz), tech stack and ad pixels.
+- **Study winning ads** — creatives, copy, per-country reach and spend history, ad-rank position over time.
+- **Watch your portfolio** — your saved products and ads, ready for scheduled check-ins.
+- **Scan on demand** — launch a live brand scan from chat (costs the usual credits, refunded automatically if it fails).
+
+Available on every paid plan — see [Limits & plans](/limits).

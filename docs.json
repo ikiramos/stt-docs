@@ -1,0 +1,57 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "SearchTheTrend",
+  "colors": {
+    "primary": "#1165ef",
+    "light": "#3B82F6",
+    "dark": "#0B4FBF"
+  },
+  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png",
+    "href": "https://searchthetrend.com"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Connect your AI",
+        "pages": ["index", "limits"]
+      },
+      {
+        "group": "Quickstarts",
+        "pages": [
+          "quickstart/claude",
+          "quickstart/chatgpt",
+          "quickstart/claude-code",
+          "quickstart/cursor",
+          "quickstart/gemini-cli"
+        ]
+      },
+      {
+        "group": "Tools",
+        "pages": ["tools/reference"]
+      },
+      {
+        "group": "Playbooks",
+        "pages": ["playbooks/index"]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      { "label": "Open SearchTheTrend", "href": "https://searchthetrend.com" }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Connect now",
+      "href": "https://searchthetrend.com/settings/mcp"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://searchthetrend.com"
+    }
+  }
+}

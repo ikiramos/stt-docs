@@ -1,0 +1,28 @@
+---
+title: "Gemini CLI"
+description: "Add SearchTheTrend to gemini-cli's settings."
+---
+
+<Steps>
+  <Step title="Generate a key">
+    [Settings → Connect your AI](https://searchthetrend.com/settings/mcp) → **Generate key**.
+  </Step>
+  <Step title="Edit settings.json">
+    Add to `~/.gemini/settings.json`:
+    ```json
+    {
+      "mcpServers": {
+        "searchthetrend": {
+          "httpUrl": "https://searchthetrend.com/api/mcp",
+          "headers": {
+            "Authorization": "Bearer stt_YOUR_KEY"
+          }
+        }
+      }
+    }
+    ```
+  </Step>
+  <Step title="Verify">
+    Run `gemini` and use `/mcp` to confirm the server is connected.
+  </Step>
+</Steps>

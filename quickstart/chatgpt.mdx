@@ -1,0 +1,29 @@
+---
+title: "ChatGPT"
+description: "Connect via developer mode — OAuth, no API key."
+---
+
+ChatGPT supports MCP connectors on Plus/Pro/Team plans with **developer mode** enabled.
+
+<Steps>
+  <Step title="Enable developer mode">
+    **Settings → Apps & Connectors → Advanced → Developer mode**.
+  </Step>
+  <Step title="Add the connector">
+    **Settings → Apps & Connectors → Create** (or *Add custom connector*), then paste:
+    ```text
+    https://searchthetrend.com/api/mcp
+    ```
+  </Step>
+  <Step title="Authorize">
+    ChatGPT redirects you to SearchTheTrend — sign in and approve. No API key involved.
+  </Step>
+  <Step title="Use it in chats">
+    Enable the SearchTheTrend connector in the chat's tools menu, then ask:
+    > *"Search winning skincare ads in Spanish and show me the 5 longest-running ones."*
+  </Step>
+</Steps>
+
+<Note>
+ChatGPT requires connectors to be re-enabled per conversation in some plans — if tools don't fire, check the tools toggle for the current chat.
+</Note>
