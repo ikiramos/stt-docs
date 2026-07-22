@@ -36,7 +36,15 @@ async function loadCatalog() {
 }
 
 function esc(s) {
-  return String(s ?? "").replaceAll("|", "\\|").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", " ");
+  return String(s ?? "")
+    // Soften the server's em-dashes into commas so the published docs don't
+    // read as machine-written (house style: no em-dashes in prose).
+    .replaceAll(" — ", ", ")
+    .replaceAll("—", ", ")
+    .replaceAll("|", "\\|")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll("\n", " ");
 }
 
 function paramRows(schema) {
@@ -59,7 +67,7 @@ const byName = new Map(tools.map((t) => [t.name, t]));
 
 let mdx = `---
 title: "Tools reference"
-description: "Every tool your assistant can call, with parameters. Generated from the live server — always in sync."
+description: "Every tool your assistant can call, with parameters. Generated from the live server, always in sync."
 ---
 
 All tools are **read-only** except the two under *Actions*, which spend account credits and always ask for confirmation. Results are compact JSON designed for AI context windows (list tools cap at 25 rows).
